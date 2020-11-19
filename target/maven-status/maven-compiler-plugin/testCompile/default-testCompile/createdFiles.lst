@@ -1,0 +1,8 @@
+com/huobi/linear/swap/wss/WssMarketSubTest.class
+com/huobi/linear/swap/api/BaseTest.class
+com/huobi/linear/swap/wss/WssNotificationSubTest.class
+com/huobi/linear/swap/api/TransferAPITest.class
+com/huobi/linear/swap/api/MarketAPITest.class
+com/huobi/linear/swap/wss/WssMarketReqTest.class
+com/huobi/linear/swap/api/AccountAPITest.class
+com/huobi/linear/swap/api/TradeAPITest.class
