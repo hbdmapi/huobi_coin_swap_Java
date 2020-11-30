@@ -1,6 +1,6 @@
 # Huobi Coin Margined Java SDK
 
-为更好的方便用户使用API接口，Coin Margined Java SDK接口现推出以下接口供用户使用。
+为更好的方便用户使用API接口，现推出以下接口供用户使用。
 
 ## 目录：
     合约市场行情类接口
@@ -84,7 +84,7 @@ public void getSwapContractInfo() {
  
  ### 调用举例：
 
-测试类放在：src/test/java/com/huobi/swqp/api/AccountAPITest 中。
+测试类目录放在：src/test/java/com/huobi/swqp/api/AccountAPITest 中。
 ```
 @Test
 public void getSwapAccountInfoResponse() {
@@ -120,7 +120,7 @@ TradeAPIServiceImpl huobiAPIService = new TradeAPIServiceImpl("API-KEY", "SECRET
 /swap-api/v1/swap_trigger_hisorders         |    POST       |       获取计划委托历史委托接口       |  是  |
 
 ### 调用举例：
-测试类放在：src/test/java/com/huobi/swqp/api/TradeAPITest 中。
+测试类目录放在：src/test/java/com/huobi/swqp/api/TradeAPITest 中。
 ```
 @Test
 public void swapOrderRequest() {
@@ -139,7 +139,7 @@ public void swapOrderRequest() {
 ```
 
 ## 现货-币本位永续合约划转接口
-此接口的位置放在：src/test/java/com/huobi/swqp/api/TransferAPITest.
+此接口的目录：src/test/java/com/huobi/swqp/api/TransferAPITest.
 ### 调用此接口需要注意以下几个问题：
 1、这个接口使用的API KEY是不变的。
 
@@ -163,8 +163,8 @@ public void transfer() {
 ```
 
 ## 市场行情类推送接口
-推送接口分为请求和订阅，请求的地址：src/test/java/com/huobi/swqp/wss/WssMarketReqTest. 订阅的地址：src/test/java/com/huobi/swqp/wss/WssMarketSubTest.
-
+推送接口分为请求和订阅，请求的目录：src/test/java/com/huobi/swqp/wss/WssMarketReqTest. 订阅的目录：src/test/java/com/huobi/swqp/wss/WssMarketSubTest.
+合约订阅地址：wss://api.hbdm.com/swap-ws    国内可以使用：wss://api.btcgateway.pro/swap-ws
  请求、订阅方法   |  订阅类型    |  描述                     |  需要验签       |    
 ------------------ |---------- |---------------------------- |--------------|
 market.$contract_code.kline.$period                    | sub  | 订阅 KLine 数据               |       否      |
@@ -177,7 +177,7 @@ market.$contract_code.trade.detail                     | req  | 请求 Trade det
 market.$contract_code.trade.detail                     | sub  | 订阅 Trade Detail 数据        |       否      |
 
 ### 调用举例：
- - 请求的试例：
+ - 请求的实例：
 ```
 @Test
 public void test1() throws URISyntaxException, InterruptedException {
@@ -203,7 +203,7 @@ public void test1() throws URISyntaxException, InterruptedException {
     }
 }
 ```
- - 订阅的试例：
+ - 订阅的实例：
 ```
 @Test
 public void test1() throws URISyntaxException, InterruptedException {
@@ -221,8 +221,8 @@ public void test1() throws URISyntaxException, InterruptedException {
 
 
 ## 资产交易类推送接口
-此推送需要进行签名才可以订阅。订阅的地址：src/test/java/com/huobi/swqp/wss/WssNotificationSubTest.
-
+此推送需要进行签名才可以订阅。订阅的目录：src/test/java/com/huobi/swqp/wss/WssNotificationSubTest.
+合约订阅地址：wss://api.hbdm.com/swap-notification   国内可以使用：wss://api.btcgateway.pro/swap-notification
  请求、订阅方法   |  订阅类型    |  描述                     |  需要验签       |    
 ------------------ |---------- |---------------------------- |--------------|
 public.$contract_code.liquidation_orders               | sub  | 订阅强平订单数据（免鉴权）    |       否      |
