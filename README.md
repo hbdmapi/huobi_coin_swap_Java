@@ -164,7 +164,9 @@ public void transfer() {
 
 ## 市场行情类推送接口
 推送接口分为请求和订阅，请求的目录：src/test/java/com/huobi/swqp/wss/WssMarketReqTest. 订阅的目录：src/test/java/com/huobi/swqp/wss/WssMarketSubTest.
-合约订阅地址：wss://api.hbdm.com/swap-ws    国内可以使用：wss://api.btcgateway.pro/swap-ws
+ 
+ - 合约订阅地址：wss://api.hbdm.com/swap-ws    国内可以使用：wss://api.btcgateway.pro/swap-ws
+ 
  请求、订阅方法   |  订阅类型    |  描述                     |  需要验签       |    
 ------------------ |---------- |---------------------------- |--------------|
 market.$contract_code.kline.$period                    | sub  | 订阅 KLine 数据               |       否      |
@@ -222,7 +224,9 @@ public void test1() throws URISyntaxException, InterruptedException {
 
 ## 资产交易类推送接口
 此推送需要进行签名才可以订阅。订阅的目录：src/test/java/com/huobi/swqp/wss/WssNotificationSubTest.
-合约订阅地址：wss://api.hbdm.com/swap-notification   国内可以使用：wss://api.btcgateway.pro/swap-notification
+ 
+ - 合约订阅地址：wss://api.hbdm.com/swap-notification   国内可以使用：wss://api.btcgateway.pro/swap-notification
+
  请求、订阅方法   |  订阅类型    |  描述                     |  需要验签       |    
 ------------------ |---------- |---------------------------- |--------------|
 public.$contract_code.liquidation_orders               | sub  | 订阅强平订单数据（免鉴权）    |       否      |
