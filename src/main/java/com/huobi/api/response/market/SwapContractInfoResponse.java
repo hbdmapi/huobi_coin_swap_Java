@@ -49,6 +49,7 @@ public class SwapContractInfoResponse {
         private String createDate;
         @SerializedName("contract_status")
         private Integer contractStatus;
-
+        @SerializedName("delivery_time")
+        private Long deliveryTime;
     }
 }

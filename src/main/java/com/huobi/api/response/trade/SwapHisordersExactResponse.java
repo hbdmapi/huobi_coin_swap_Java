@@ -69,6 +69,8 @@ public class SwapHisordersExactResponse {
             private String feeAsset;
             @SerializedName("liquidation_type")
             private String liquidationType;
+            @SerializedName("is_tpsl")
+            private String isTpsl;
         }
     }
 

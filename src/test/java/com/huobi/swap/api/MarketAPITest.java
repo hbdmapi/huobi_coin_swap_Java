@@ -184,4 +184,10 @@ public class MarketAPITest implements BaseTest {
         logger.debug("22.获取基差数据:{}", JSON.toJSONString(response));
 
     }
+
+    @Test
+    public void getSwapEstimatedSettlementPriceResponse(){
+        SwapEstimatedSettlementPriceResponse response=huobiAPIService.getSwapEstimatedSettlementPrice("btc-usd");
+        logger.debug("23.获取预估结算价:{}", JSON.toJSONString(response));
+    }
 }

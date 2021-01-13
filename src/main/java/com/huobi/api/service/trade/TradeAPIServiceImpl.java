@@ -48,13 +48,30 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             if (request.getClientOrderId() != null) {
                 params.put("client_order_id", request.getClientOrderId());
             }
+            if (request.getTpTriggerPrice()!=null){
+                params.put("tp_trigger_price",request.getTpTriggerPrice());
+            }
+            if (request.getTpOrderPrice()!=null){
+                params.put("tp_order_price",request.getTpOrderPrice());
+            }
+            if (request.getTpOrderPriceType()!=null){
+                params.put("tp_order_price_type",request.getTpOrderPriceType());
+            }
+            if (request.getSlTriggerPrice()!=null){
+                params.put("sl_trigger_price",request.getSlTriggerPrice());
+            }
+            if (request.getSlOrderPrice()!=null){
+                params.put("sl_order_price",request.getSlOrderPrice());
+            }
+            if (request.getSlOrderPriceType()!=null){
+                params.put("sl_order_price_type",request.getSlOrderPriceType());
+            }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_ORDER, params);
             logger.debug("body:{}", body);
             SwapOrderResponse response = JSON.parseObject(body, SwapOrderResponse.class);
             if ("ok".equalsIgnoreCase(response.getStatus())) {
                 return response;
             }
-
         } catch (Exception e) {
             throw new ApiException(e);
         }
@@ -82,6 +99,24 @@ public class TradeAPIServiceImpl implements TradeAPIService {
                         }
                         if (e.getClientOrderId() != null) {
                             params.put("client_order_id", e.getClientOrderId());
+                        }
+                        if (e.getTpTriggerPrice()!=null){
+                            params.put("tp_trigger_price",e.getTpTriggerPrice());
+                        }
+                        if (e.getTpOrderPrice()!=null){
+                            params.put("tp_order_price",e.getTpOrderPrice());
+                        }
+                        if (e.getTpOrderPriceType()!=null){
+                            params.put("tp_order_price_type",e.getTpOrderPriceType());
+                        }
+                        if (e.getSlTriggerPrice()!=null){
+                            params.put("sl_trigger_price",e.getSlTriggerPrice());
+                        }
+                        if (e.getSlOrderPrice()!=null){
+                            params.put("sl_order_price",e.getSlOrderPrice());
+                        }
+                        if (e.getSlOrderPriceType()!=null){
+                            params.put("sl_order_price_type",e.getSlOrderPriceType());
                         }
 
                         listMap.add(params);
@@ -523,6 +558,153 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_MATCHRESULTS_EXACT, params);
             logger.debug("body:{}", body);
             SwapMatchresultsExactResponse response = JSON.parseObject(body, SwapMatchresultsExactResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapRelationTpslOrderResponse swapRelationTpslOrderResponse(SwapRelationTpslOrderRequest request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            params.put("order_id",request.getOrderId());
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_RELATION_TPSL_ORDER, params);
+            logger.debug("body:{}", body);
+            SwapRelationTpslOrderResponse response = JSON.parseObject(body, SwapRelationTpslOrderResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapTpslHisordersResponse swapTpslHisordersResponse(SwapTpslHisordersRequset request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            params.put("status",request.getStatus());
+            params.put("create_date",request.getCreateDate());
+            if (request.getPageIndex()!=null){
+                params.put("page_index",request.getPageIndex());
+            }
+            if (request.getPageSize()!=null){
+                params.put("page_size",request.getPageSize());
+            }
+            if (StringUtils.isNotEmpty(request.getSortBy())){
+                params.put("sort_by",request.getSortBy());
+            }
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_HISORDERS, params);
+            logger.debug("body:{}", body);
+            SwapTpslHisordersResponse response = JSON.parseObject(body, SwapTpslHisordersResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapTpslOpenordersResponse swapTpslOpenordersResponse(SwapTpslOpenordersRequest request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            if (request.getPageIndex()!=null){
+                params.put("page_index",request.getPageIndex());
+            }
+            if (request.getPageSize()!=null){
+                params.put("page_size",request.getPageSize());
+            }
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_OPENORDERS, params);
+            logger.debug("body:{}", body);
+            SwapTpslOpenordersResponse response = JSON.parseObject(body, SwapTpslOpenordersResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapTpslCancelallResponse swapTpslCancelallResponse(SwapTpslCancelallRequest request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_CANCELALL, params);
+            logger.debug("body:{}", body);
+            SwapTpslCancelallResponse response = JSON.parseObject(body, SwapTpslCancelallResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapTpslCancelResponse swapTpslCancelResponse(SwapTpslCancelRequest request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            params.put("order_id",request.getOrderId());
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_CANCEL, params);
+            logger.debug("body:{}", body);
+            SwapTpslCancelResponse response = JSON.parseObject(body, SwapTpslCancelResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapTpslOrderResponse swapTpslOrderResponse(SwapTpslOrderRequest request) {
+        String body;
+        Map<String, Object> params = new HashMap<>();
+        try {
+            params.put("contract_code",request.getContractCode().toUpperCase());
+            params.put("direction",request.getDirection());
+            params.put("volume",request.getVolume());
+            if (request.getTpTriggerPrice()!=null){
+                params.put("tp_trigger_price",request.getTpTriggerPrice());
+            }
+            if (request.getTpOrderPrice()!=null){
+                params.put("tp_order_price",request.getTpOrderPrice());
+            }
+            if (request.getTpOrderPriceType()!=null){
+                params.put("tp_order_price_type",request.getTpOrderPriceType());
+            }
+            if (request.getSlTriggerPrice()!=null){
+                params.put("sl_trigger_price",request.getSlTriggerPrice());
+            }
+            if (request.getSlOrderPrice()!=null){
+                params.put("sl_order_price",request.getSlOrderPrice());
+            }
+            if (request.getSlOrderPriceType()!=null){
+                params.put("sl_order_price_type",request.getSlOrderPriceType());
+            }
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_ORDER, params);
+            logger.debug("body:{}", body);
+            SwapTpslOrderResponse response = JSON.parseObject(body, SwapTpslOrderResponse.class);
             if ("ok".equalsIgnoreCase(response.getStatus())) {
                 return response;
             }

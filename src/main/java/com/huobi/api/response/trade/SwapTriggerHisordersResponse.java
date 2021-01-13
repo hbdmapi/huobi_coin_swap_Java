@@ -111,6 +111,8 @@ public class SwapTriggerHisordersResponse {
             private Integer failCode;
             @SerializedName("fail_reason")
             private String failReason;
+            @SerializedName("update_time")
+            private Long updateTime;
 
         }
     }

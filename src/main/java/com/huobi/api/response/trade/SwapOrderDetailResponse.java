@@ -79,6 +79,8 @@ public class SwapOrderDetailResponse {
         private Integer currentPage;
         @SerializedName("total_size")
         private Integer totalSize;
+        @SerializedName("is_tpsl")
+        private String isTpsl;
         private List<TradesBean> trades;
 
         @Data

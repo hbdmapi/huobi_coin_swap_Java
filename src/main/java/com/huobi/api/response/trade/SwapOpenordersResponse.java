@@ -111,7 +111,8 @@ public class SwapOpenordersResponse {
             private String liquidationType;
             @SerializedName("canceled_at")
             private String canceledAt;
-
+            @SerializedName("is_tpsl")
+            private String isTpsl;
         }
     }
 }

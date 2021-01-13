@@ -40,4 +40,16 @@ public interface TradeAPIService {
     SwapHisordersExactResponse swapHisordersExactResponse(SwapHisordersExectRequest request);//组合查询合约历史委托
 
     SwapMatchresultsExactResponse swapMatchresultsExactResponse(SwapMatchresultsExactRequest request);//组合查询用户历史成交记录
+
+    SwapTpslOrderResponse swapTpslOrderResponse(SwapTpslOrderRequest request);
+
+    SwapTpslCancelResponse swapTpslCancelResponse(SwapTpslCancelRequest request);
+
+    SwapTpslCancelallResponse swapTpslCancelallResponse(SwapTpslCancelallRequest request);
+
+    SwapTpslOpenordersResponse swapTpslOpenordersResponse(SwapTpslOpenordersRequest request);
+
+    SwapTpslHisordersResponse swapTpslHisordersResponse(SwapTpslHisordersRequset request);
+
+    SwapRelationTpslOrderResponse swapRelationTpslOrderResponse(SwapRelationTpslOrderRequest request);
 }

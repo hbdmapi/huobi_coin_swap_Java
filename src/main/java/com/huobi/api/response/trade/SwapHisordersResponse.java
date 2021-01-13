@@ -104,6 +104,10 @@ public class SwapHisordersResponse {
             private Integer orderType;
             @SerializedName("liquidation_type")
             private String liquidationType;
+            @SerializedName("is_tpsl")
+            private String isTpsl;
+            @SerializedName("update_time")
+            private Long updateTime;
 
         }
     }

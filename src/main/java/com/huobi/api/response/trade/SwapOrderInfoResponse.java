@@ -93,6 +93,8 @@ public class SwapOrderInfoResponse {
         private String liquidationType;
         @SerializedName("canceled_at")
         private Long canceledAt;
+        @SerializedName("is_tpsl")
+        private String isTpsl;
 
 
     }
