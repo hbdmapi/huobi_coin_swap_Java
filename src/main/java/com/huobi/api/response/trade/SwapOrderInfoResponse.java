@@ -95,7 +95,8 @@ public class SwapOrderInfoResponse {
         private Long canceledAt;
         @SerializedName("is_tpsl")
         private String isTpsl;
-
+        @SerializedName("real_profit")
+        private String realProfit;
 
     }
 }

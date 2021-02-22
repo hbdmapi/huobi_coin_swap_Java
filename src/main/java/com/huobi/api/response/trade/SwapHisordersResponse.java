@@ -108,6 +108,8 @@ public class SwapHisordersResponse {
             private String isTpsl;
             @SerializedName("update_time")
             private Long updateTime;
+            @SerializedName("real_profit")
+            private String realProfit;
 
         }
     }

@@ -176,4 +176,16 @@ public class AccountAPITest implements BaseTest {
         SwapAvailableLevelRateResponse response=huobiAPIService.getSwapAvailableLevelRate("theta-usd");
         logger.debug("17.查询用户可用杠杆倍数：{}", JSON.toJSONString(response));
     }
+
+    @Test
+    public void getSwapSubAuth(){
+        SwapSubAuthResponse response=huobiAPIService.getSwapSubAuth("146190163,12345",1);
+        logger.debug("18.批量设置子账户交易权限：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getSwapSubAccountInfoList(){
+        SwapSubAccountInfoListResponse response=huobiAPIService.getSwapSubAccountInfoList("",1,0);
+        logger.debug("19.批量获取子账户资产信息：{}", JSON.toJSONString(response));
+    }
 }

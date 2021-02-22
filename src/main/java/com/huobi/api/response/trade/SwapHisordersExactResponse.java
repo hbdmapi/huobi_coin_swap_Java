@@ -71,6 +71,8 @@ public class SwapHisordersExactResponse {
             private String liquidationType;
             @SerializedName("is_tpsl")
             private String isTpsl;
+            @SerializedName("real_profit")
+            private String realProfit;
         }
     }
 

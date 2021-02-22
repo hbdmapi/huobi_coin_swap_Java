@@ -90,7 +90,8 @@ public class SwapMatchresultsResponse {
             @SerializedName("fee_asset")
             private String feeAsset;
             private String role;
-
+            @SerializedName("real_profit")
+            private String realProfit;
 
         }
     }

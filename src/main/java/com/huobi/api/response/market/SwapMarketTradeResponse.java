@@ -3,6 +3,7 @@ package com.huobi.api.response.market;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -49,7 +50,7 @@ public class SwapMarketTradeResponse {
             private Long id;
             private String price;
             private Long ts;
-
+            private String quantity;
         }
     }
 }

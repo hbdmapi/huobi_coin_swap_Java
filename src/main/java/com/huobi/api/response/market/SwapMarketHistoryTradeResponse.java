@@ -50,7 +50,7 @@ public class SwapMarketHistoryTradeResponse {
             private Long id;
             private BigDecimal price;
             private Long ts;
-
+            private BigDecimal quantity;
         }
     }
 }

@@ -42,5 +42,7 @@ public interface AccountAPIService {
 
     SwapAvailableLevelRateResponse getSwapAvailableLevelRate(String contractCode);
 
+    SwapSubAuthResponse getSwapSubAuth(String subUid,Integer subAuth);
 
+    SwapSubAccountInfoListResponse getSwapSubAccountInfoList(String contractCode,Integer pageIndex,Integer pageSize);
 }

@@ -423,5 +423,50 @@ public class AccountAPIServiceImpl implements AccountAPIService {
         throw new ApiException(body);
     }
 
+    @Override
+    public SwapSubAuthResponse getSwapSubAuth(String subUid, Integer subAuth) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            params.put("sub_uid", subUid);
+            params.put("sub_auth", subAuth);
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_SUB_AUTH, params);
+            logger.debug("body:{}", body);
+            SwapSubAuthResponse response = JSON.parseObject(body, SwapSubAuthResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
+    @Override
+    public SwapSubAccountInfoListResponse getSwapSubAccountInfoList(String contractCode, Integer pageIndex, Integer pageSize) {
+        String body;
+        try {
+            Map<String, Object> params = new HashMap<>();
+            if (contractCode!=null) {
+                params.put("contract_code", contractCode.toUpperCase());
+            }
+            if (pageIndex!=null) {
+                params.put("page_index", pageIndex);
+            }
+            if (pageSize!=null){
+                params.put("page_size",pageSize);
+            }
+            body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_SUB_ACCOUNT_INFO_LIST, params);
+            logger.debug("body:{}", body);
+            SwapSubAccountInfoListResponse response = JSON.parseObject(body, SwapSubAccountInfoListResponse.class);
+            if ("ok".equalsIgnoreCase(response.getStatus())) {
+                return response;
+            }
+        } catch (Exception e) {
+            throw new ApiException(e);
+        }
+        throw new ApiException(body);
+    }
+
 
 }

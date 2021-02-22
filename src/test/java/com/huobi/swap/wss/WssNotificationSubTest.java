@@ -11,16 +11,12 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 
-/**
- * 注意：
- * 当更换域名时，需要去：WssNotificationHandle 类里面将 addAuth() 方法里的域名一起更换掉。
- * as.createSignature(accessKey, secretKey, "GET", "api.hbdm.com", "/option-notification", map);
- */
 public class WssNotificationSubTest {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
-    private String URL = "wss://api.hbdm.com/swap-notification";//订单推送访问地址
-    WssNotificationHandle wssNotificationHandle = new WssNotificationHandle(URL,"","");
+    private String host = "api.hbdm.vn";
+    private String url = "/swap-notification";//注意地址前面要带上"/"
+    WssNotificationHandle wssNotificationHandle = new WssNotificationHandle(host, url, "", "");
 
     @Test
     public void test1() throws URISyntaxException, InterruptedException {

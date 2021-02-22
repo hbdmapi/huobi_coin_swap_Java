@@ -51,4 +51,10 @@ public interface MarketAPIService {
     LinearSwapBasisResponse getLinearSwapBasis(LinearSwapBasisRequest request);
 
     SwapEstimatedSettlementPriceResponse getSwapEstimatedSettlementPrice(String contractCode);
+
+    BatchMergedResponse getBatchMerged(String contractCode);
+
+    SwapMarkPriceKlineResponse getSwapMarkPriceKline(String contractCode,String period,Integer size);
+
+    SwapLadderMarginResponse getSwapLadderMargin(String contractCode);
 }

@@ -190,4 +190,22 @@ public class MarketAPITest implements BaseTest {
         SwapEstimatedSettlementPriceResponse response=huobiAPIService.getSwapEstimatedSettlementPrice("btc-usd");
         logger.debug("23.获取预估结算价:{}", JSON.toJSONString(response));
     }
+
+    @Test
+    public void getBatchMerged(){
+        BatchMergedResponse response=huobiAPIService.getBatchMerged("");
+        logger.debug("24.批量获取聚合行情:{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getSwapMarkPriceKline(){
+        SwapMarkPriceKlineResponse response =huobiAPIService.getSwapMarkPriceKline("btc-usd","1min",20);
+        logger.debug("25.获取标记价格的K线数据:{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void getSwapLadderMargin(){
+        SwapLadderMarginResponse response=huobiAPIService.getSwapLadderMargin("btc-usd");
+        logger.debug("26.获取平台阶梯保证金:{}", JSON.toJSONString(response));
+    }
 }

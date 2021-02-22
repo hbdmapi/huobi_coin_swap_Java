@@ -113,6 +113,10 @@ public class SwapOpenordersResponse {
             private String canceledAt;
             @SerializedName("is_tpsl")
             private String isTpsl;
+            @SerializedName("real_profit")
+            private String realProfit;
+            @SerializedName("update_time")
+            private Long updateTime;
         }
     }
 }

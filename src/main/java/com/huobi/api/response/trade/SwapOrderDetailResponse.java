@@ -81,6 +81,8 @@ public class SwapOrderDetailResponse {
         private Integer totalSize;
         @SerializedName("is_tpsl")
         private String isTpsl;
+        @SerializedName("real_profit")
+        private String realProfit;
         private List<TradesBean> trades;
 
         @Data
@@ -106,6 +108,9 @@ public class SwapOrderDetailResponse {
             private Long createdAt;
             @SerializedName("fee_asset")
             private String feeAsset;
+            @SerializedName("real_profit")
+            private String realProfit;
+            private BigDecimal profit;
 
         }
     }

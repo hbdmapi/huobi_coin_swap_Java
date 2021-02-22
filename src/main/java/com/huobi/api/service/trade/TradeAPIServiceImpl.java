@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,19 +49,19 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             if (request.getClientOrderId() != null) {
                 params.put("client_order_id", request.getClientOrderId());
             }
-            if (request.getTpTriggerPrice()!=null){
+            if (request.getTpTriggerPrice()!=null && request.getTpTriggerPrice()!= BigDecimal.valueOf(0) ){
                 params.put("tp_trigger_price",request.getTpTriggerPrice());
             }
-            if (request.getTpOrderPrice()!=null){
+            if (request.getTpOrderPrice()!=null && request.getTpOrderPrice()!= BigDecimal.valueOf(0) ){
                 params.put("tp_order_price",request.getTpOrderPrice());
             }
             if (request.getTpOrderPriceType()!=null){
                 params.put("tp_order_price_type",request.getTpOrderPriceType());
             }
-            if (request.getSlTriggerPrice()!=null){
+            if (request.getSlTriggerPrice()!=null && request.getSlTriggerPrice()!=BigDecimal.valueOf(0)){
                 params.put("sl_trigger_price",request.getSlTriggerPrice());
             }
-            if (request.getSlOrderPrice()!=null){
+            if (request.getSlOrderPrice()!=null && request.getSlOrderPrice()!=BigDecimal.valueOf(0)){
                 params.put("sl_order_price",request.getSlOrderPrice());
             }
             if (request.getSlOrderPriceType()!=null){
@@ -100,19 +101,19 @@ public class TradeAPIServiceImpl implements TradeAPIService {
                         if (e.getClientOrderId() != null) {
                             params.put("client_order_id", e.getClientOrderId());
                         }
-                        if (e.getTpTriggerPrice()!=null){
+                        if (e.getTpTriggerPrice()!=null && e.getTpTriggerPrice()!= BigDecimal.valueOf(0) ){
                             params.put("tp_trigger_price",e.getTpTriggerPrice());
                         }
-                        if (e.getTpOrderPrice()!=null){
+                        if (e.getTpOrderPrice()!=null && e.getTpOrderPrice()!= BigDecimal.valueOf(0) ){
                             params.put("tp_order_price",e.getTpOrderPrice());
                         }
                         if (e.getTpOrderPriceType()!=null){
                             params.put("tp_order_price_type",e.getTpOrderPriceType());
                         }
-                        if (e.getSlTriggerPrice()!=null){
+                        if (e.getSlTriggerPrice()!=null && e.getSlTriggerPrice()!=BigDecimal.valueOf(0)){
                             params.put("sl_trigger_price",e.getSlTriggerPrice());
                         }
-                        if (e.getSlOrderPrice()!=null){
+                        if (e.getSlOrderPrice()!=null && e.getSlOrderPrice()!=BigDecimal.valueOf(0)){
                             params.put("sl_order_price",e.getSlOrderPrice());
                         }
                         if (e.getSlOrderPriceType()!=null){
@@ -176,6 +177,12 @@ public class TradeAPIServiceImpl implements TradeAPIService {
         try {
             Map<String, Object> params = new HashMap<>();
             params.put("contract_code", request.getContractCode());
+            if (request.getDirection()!=null){
+                params.put("direction",request.getDirection());
+            }
+            if (request.getOffset()!=null){
+                params.put("offset",request.getOffset());
+            }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_CANCELALL, params);
             logger.debug("body:{}", body);
             SwapCancelallResponse response = JSON.parseObject(body, SwapCancelallResponse.class);
@@ -263,6 +270,12 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             if (request.getPageSize() != null) {
                 params.put("page_size", request.getPageSize());
             }
+            if (request.getSortBy()!=null){
+                params.put("sort_by",request.getSortBy());
+            }
+            if (request.getTradeType()!=null){
+                params.put("trade_type",request.getTradeType());
+            }
             params.put("contract_code", request.getContractCode().toUpperCase());
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_OPENORDERS, params);
             logger.debug("body:{}", body);
@@ -292,6 +305,9 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             }
             if (request.getContractCode() != null) {
                 params.put("page_index", request.getPageIndex());
+            }
+            if (request.getSortBy()!=null){
+                params.put("sort_by",request.getSortBy());
             }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_HISORDERS, params);
             logger.debug("body:{}", body);
@@ -417,6 +433,12 @@ public class TradeAPIServiceImpl implements TradeAPIService {
         try {
             Map<String, Object> params = new HashMap<>();
             params.put("contract_code", request.getContractCode());
+            if (request.getDirection()!=null){
+                params.put("direction",request.getDirection());
+            }
+            if (request.getOffset()!=null){
+                params.put("offset",request.getOffset());
+            }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TRIGGER_CANCELALL, params);
             logger.debug("body:{}", body);
             SwapTriggerCancelallResponse response = JSON.parseObject(body, SwapTriggerCancelallResponse.class);
@@ -440,6 +462,9 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             }
             if (request.getPageSize() != null) {
                 params.put("page_size", request.getPageSize());
+            }
+            if (request.getTradeType()!=null){
+                params.put("trade_type",request.getTradeType());
             }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TRIGGER_OPENORDERS, params);
             logger.debug("body:{}", body);
@@ -468,6 +493,9 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             }
             if (request.getPageSize() != null) {
                 params.put("page_size", request.getPageSize());
+            }
+            if (request.getSortBy()!=null){
+                params.put("sort_by",request.getSortBy());
             }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TRIGGER_HISORDERS, params);
             logger.debug("body:{}", body);
@@ -627,6 +655,9 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             if (request.getPageSize()!=null){
                 params.put("page_size",request.getPageSize());
             }
+            if (request.getTradeType()!=null){
+                params.put("trade_type",request.getTradeType());
+            }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_OPENORDERS, params);
             logger.debug("body:{}", body);
             SwapTpslOpenordersResponse response = JSON.parseObject(body, SwapTpslOpenordersResponse.class);
@@ -645,6 +676,9 @@ public class TradeAPIServiceImpl implements TradeAPIService {
         Map<String, Object> params = new HashMap<>();
         try {
             params.put("contract_code",request.getContractCode().toUpperCase());
+            if (request.getDirection()!=null){
+                params.put("direction",request.getDirection());
+            }
             body = HbdmHttpClient.getInstance().doPost(api_key, secret_key, url_prex + HuobiCoinMarginedSwapAPIOptions.SWAP_TPSL_CANCELALL, params);
             logger.debug("body:{}", body);
             SwapTpslCancelallResponse response = JSON.parseObject(body, SwapTpslCancelallResponse.class);
@@ -684,19 +718,19 @@ public class TradeAPIServiceImpl implements TradeAPIService {
             params.put("contract_code",request.getContractCode().toUpperCase());
             params.put("direction",request.getDirection());
             params.put("volume",request.getVolume());
-            if (request.getTpTriggerPrice()!=null){
+            if (request.getTpTriggerPrice()!=null && request.getTpTriggerPrice()!= BigDecimal.valueOf(0) ){
                 params.put("tp_trigger_price",request.getTpTriggerPrice());
             }
-            if (request.getTpOrderPrice()!=null){
+            if (request.getTpOrderPrice()!=null && request.getTpOrderPrice()!= BigDecimal.valueOf(0) ){
                 params.put("tp_order_price",request.getTpOrderPrice());
             }
             if (request.getTpOrderPriceType()!=null){
                 params.put("tp_order_price_type",request.getTpOrderPriceType());
             }
-            if (request.getSlTriggerPrice()!=null){
+            if (request.getSlTriggerPrice()!=null && request.getSlTriggerPrice()!=BigDecimal.valueOf(0)){
                 params.put("sl_trigger_price",request.getSlTriggerPrice());
             }
-            if (request.getSlOrderPrice()!=null){
+            if (request.getSlOrderPrice()!=null && request.getSlOrderPrice()!=BigDecimal.valueOf(0)){
                 params.put("sl_order_price",request.getSlOrderPrice());
             }
             if (request.getSlOrderPriceType()!=null){

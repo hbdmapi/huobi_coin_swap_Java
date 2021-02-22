@@ -62,6 +62,8 @@ public class SwapMatchresultsExactResponse {
             private String feeAsset;
             @SerializedName("order_source")
             private String orderSource;
+            @SerializedName("real_profit")
+            private String realProfit;
         }
     }
 }
