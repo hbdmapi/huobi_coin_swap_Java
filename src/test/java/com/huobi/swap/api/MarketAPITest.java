@@ -208,4 +208,10 @@ public class MarketAPITest implements BaseTest {
         SwapLadderMarginResponse response=huobiAPIService.getSwapLadderMargin("btc-usd");
         logger.debug("26.获取平台阶梯保证金:{}", JSON.toJSONString(response));
     }
+
+    @Test
+    public void getSwapBatchFundingRate(){
+        SwapBatchFundingRateResponse response=huobiAPIService.getSwapBatchFundingRate("");
+        logger.debug("27.批量获取合约资金费率:{}", JSON.toJSONString(response));
+    }
 }

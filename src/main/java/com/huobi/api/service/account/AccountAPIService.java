@@ -45,4 +45,6 @@ public interface AccountAPIService {
     SwapSubAuthResponse getSwapSubAuth(String subUid,Integer subAuth);
 
     SwapSubAccountInfoListResponse getSwapSubAccountInfoList(String contractCode,Integer pageIndex,Integer pageSize);
+
+    SwapBalanceValuationResponse getSwapBalanceValuation(String ValuationAsset);
 }

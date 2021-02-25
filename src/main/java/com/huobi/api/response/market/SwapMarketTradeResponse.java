@@ -1,5 +1,6 @@
 package com.huobi.api.response.market;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -51,6 +52,8 @@ public class SwapMarketTradeResponse {
             private String price;
             private Long ts;
             private String quantity;
+            @SerializedName("contractCode")
+            private String contractCode;
         }
     }
 }

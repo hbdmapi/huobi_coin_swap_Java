@@ -188,4 +188,10 @@ public class AccountAPITest implements BaseTest {
         SwapSubAccountInfoListResponse response=huobiAPIService.getSwapSubAccountInfoList("",1,0);
         logger.debug("19.批量获取子账户资产信息：{}", JSON.toJSONString(response));
     }
+
+    @Test
+    public void getSwapBalanceValuation(){
+        SwapBalanceValuationResponse response=huobiAPIService.getSwapBalanceValuation("cny");
+        logger.debug("20.获取账户总资产估值：{}", JSON.toJSONString(response));
+    }
 }

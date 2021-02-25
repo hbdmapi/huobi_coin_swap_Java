@@ -34,6 +34,7 @@ public class HuobiCoinMarginedSwapAPIOptions {
     public static final String BATCH_MERGED = "/swap-ex/market/detail/batch_merged"; // 25.批量获取聚合行情
 
     public static final String SWAP_MARK_PRICE_KLINE = "/index/market/history/swap_mark_price_kline"; // 26.获取标记价格的 K 线数据
+    public static final String SWAP_BATCH_FUNDING_RATE = "/swap-api/v1/swap_batch_funding_rate";  // 27.批量获取合约资金费率
 
     //合约资产接口
     public static final String SWAP_ACCOUNT_INFO = "/swap-api/v1/swap_account_info"; // 1.获取用户账户信息
@@ -58,6 +59,7 @@ public class HuobiCoinMarginedSwapAPIOptions {
     public static final String SWAP_AVAILABLE_LEVEL_RATE = "/swap-api/v1/swap_available_level_rate";//17.获取合约可用杠杆倍数
     public static final String SWAP_SUB_AUTH = "/swap-api/v1/swap_sub_auth";//18.批量设置子账户交易权限
     public static final String SWAP_SUB_ACCOUNT_INFO_LIST = "/swap-api/v1/swap_sub_account_info_list";//19.批量获取子账户资产信息
+    public static final String SWAP_BALANCE_VALUATION = "/swap-api/v1/swap_balance_valuation"; // 20.获取账户总资产估值
 
     //合约交易接口
     public static final String SWAP_ORDER = "/swap-api/v1/swap_order"; // 1.合约下单
