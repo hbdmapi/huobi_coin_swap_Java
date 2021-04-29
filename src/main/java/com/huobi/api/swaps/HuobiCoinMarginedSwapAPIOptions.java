@@ -35,6 +35,7 @@ public class HuobiCoinMarginedSwapAPIOptions {
 
     public static final String SWAP_MARK_PRICE_KLINE = "/index/market/history/swap_mark_price_kline"; // 26.获取标记价格的 K 线数据
     public static final String SWAP_BATCH_FUNDING_RATE = "/swap-api/v1/swap_batch_funding_rate";  // 27.批量获取合约资金费率
+    public static final String MARKET_BBO = "/swap-ex/market/bbo";  // 28.获取市场最优挂单
 
     //合约资产接口
     public static final String SWAP_ACCOUNT_INFO = "/swap-api/v1/swap_account_info"; // 1.获取用户账户信息
