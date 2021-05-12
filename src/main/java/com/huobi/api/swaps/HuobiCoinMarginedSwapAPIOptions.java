@@ -91,6 +91,12 @@ public class HuobiCoinMarginedSwapAPIOptions {
     public static final String SWAP_TPSL_OPENORDERS = "/swap-api/v1/swap_tpsl_openorders";//查询止盈止损订单当前委托
     public static final String SWAP_TPSL_HISORDERS = "/swap-api/v1/swap_tpsl_hisorders";//查询止盈止损订单历史委托
     public static final String SWAP_RELATION_TPSL_ORDER = "/swap-api/v1/swap_relation_tpsl_order";//查询开仓单关联的止盈止损订单详情
+    public static final String SWAP_TRACK_ORDER = "/swap-api/v1/swap_track_order"; // 跟踪委托订单下单
+
+    public static final String SWAP_TRACK_CANCEL= "/swap-api/v1/swap_track_cancel"; // 跟踪委托订单撤单
+    public static final String SWAP_TRACK_CANCELALL = "/swap-api/v1/swap_track_cancelall"; // 跟踪委托订单全部撤单
+    public static final String SWAP_TRACK_OPENORDERS = "/swap-api/v1/swap_track_openorders"; // 跟踪委托订单当前委托
+    public static final String SWAP_TRACK_HISORDERS = "/swap-api/v1/swap_track_hisorders"; // 跟踪委托订单历史委托
 
     //合约划转接口
     public static final String USDT_SWAP_TRANSFER = "/v2/account/transfer"; // 1.现货-USDT永续账户间进行资金的划转

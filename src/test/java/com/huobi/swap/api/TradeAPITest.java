@@ -348,5 +348,66 @@ public class TradeAPITest implements BaseTest {
         logger.debug("24.查询开仓单关联的止盈止损订单详情：{}", JSON.toJSONString(response));
     }
 
+    @Test
+    public void swapTrackOrders(){
+        SwapTrackOrderRequest request=SwapTrackOrderRequest.builder()
+                .contractCode("")
+                .direction("")
+                .offset("")
+                .leverRate(1)
+                .volume(BigDecimal.valueOf(1))
+                .callbackRate(BigDecimal.valueOf(0.1))
+                .orderPriceType("")
+                .build();
+        SwapTrackOrderResponse response=huobiAPIService.swapTrackOrderResponse(request);
+        logger.debug("25.跟踪委托订单下单：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void swapTrackCancel(){
+        SwapTrackCancelRequest request= SwapTrackCancelRequest.builder()
+                .orderId("")
+                .contractCode("")
+                .build();
+        SwapTrackCancelResponse response=huobiAPIService.swapTrackCancelResponse(request);
+        logger.debug("26.跟踪委托订单撤单：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void swapTrackCancelall(){
+        SwapTrackCancelallRequest request= SwapTrackCancelallRequest.builder()
+                .contractCode("")
+                .direction("")
+                .offset("")
+                .build();
+        SwapTrackCancelallResponse response=huobiAPIService.swapTrackCancelallResponse(request);
+        logger.debug("27.跟踪委托订单全部撤单：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void swapTrackOpenorders(){
+        SwapTrackOpenordersRequest request=SwapTrackOpenordersRequest.builder()
+                .contractCode("")
+                .tradeType(0)
+                .pageIndex(1)
+                .pageSize(2)
+                .build();
+        SwapTrackOpenordersResponse response=huobiAPIService.swapTrackOpenordersResponse(request);
+        logger.debug("28.跟踪委托订单当前委托：{}", JSON.toJSONString(response));
+    }
+
+    @Test
+    public void swapTrackHisorders(){
+        SwapTrackHisordersRequest request= SwapTrackHisordersRequest.builder()
+                .contractCode("")
+                .tradeType(0)
+                .createDate(10l)
+                .pageIndex(1)
+                .pageSize(1)
+                .sortBy("")
+                .build();
+        SwapTrackHisordersResponse response=huobiAPIService.swapTrackHisordersResponse(request);
+        logger.debug("29.跟踪委托订单当前委托：{}", JSON.toJSONString(response));
+    }
 
 }
